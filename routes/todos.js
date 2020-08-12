@@ -1,8 +1,9 @@
 const express = require("express");
-const { getTodos } = require("../controllers/todos");
+const { getTodos, completeTodo } = require("../controllers/todos");
 
 const router = express.Router();
 
 router.route("/").get(getTodos);
+router.route("/").put(completeTodo);
 
 module.exports = router;
