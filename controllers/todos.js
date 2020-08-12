@@ -35,9 +35,8 @@ exports.completeTodo = async (req, res, next) => {
   // 즐겨찾기에 이미 추가된 영화는, 즐겨찾기에 추가되지 않도록 한다.
 
   let todo_id = req.body.todo_id;
-  let completed = req.body.completed;
 
-  let query = `UPDATE todo SET completed = if( completed = '1', '0', '1' ) WHERE id = ${todo_id}`;
+  let query = `update todo set completed = if( completed = '1', '0', '1' ) where id = ${todo_id}`;
 
   try {
     [result] = await connection.query(query);
